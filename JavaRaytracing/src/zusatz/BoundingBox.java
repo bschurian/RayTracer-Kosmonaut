@@ -17,14 +17,14 @@ import beleuchtung_I.SingleColorMaterial;
 
 /**
  * Das Rendern von Modellen die aus Dreiecks-Meshes bestehen ist sehr
- * aufwaendig. Fuer jeden Strahl müssen alle Dreiecke des Modells geprüft
+ * aufwaendig. Fuer jeden Strahl mï¿½ssen alle Dreiecke des Modells geprï¿½ft
  * werden. Je nach Aufbau der Szene gehen die meisten Strahlen jedoch am Modell
- * vorbei. Eine erste Optimierung ist es um das Modell eine Box zu legen. Für
- * jeden Strahl wird zunaechst geprüft ob die Bounding-Box geschnitten wird.
+ * vorbei. Eine erste Optimierung ist es um das Modell eine Box zu legen. Fï¿½r
+ * jeden Strahl wird zunaechst geprï¿½ft ob die Bounding-Box geschnitten wird.
  * Geht der Strahl vorbei, kann das Objekt nicht getroffen werden und kein
  * Dreieck des Modells muss geprueft werden. Wird die Bounding-Box getroffen
  * dann wurde auch potenziell das Modell getroffen, womit die Dreiecke geprueft
- * werden müssen. Nimmt das Modell nicht das vollstaendige Bild ein, sollte
+ * werden mï¿½ssen. Nimmt das Modell nicht das vollstaendige Bild ein, sollte
  * durch die Bounding-Box das Rendern wesentlich beschleunigt werden.
  * 
  * @author Kosmonaut
@@ -32,7 +32,7 @@ import beleuchtung_I.SingleColorMaterial;
  */
 public class BoundingBox extends Geometry {
 	/**
-	 * die Node, die die Box selbst enthält selbst
+	 * die Node, die die Box selbst enthï¿½lt selbst
 	 */
 	public final Node box;
 	/**
@@ -91,11 +91,11 @@ public class BoundingBox extends Geometry {
 
 	@Override
 	public Hit hit(Ray r) {
-		return box.hit(r);// Bbox sehen
-//		 if (box.hit(r) != null){
-//			 return model.hit(r);
-//		 }
-//		 return null;
+//		return box.hit(r);// Bbox sehen
+		 if (box.hit(r) != null){
+			 return model.hit(r);
+		 }
+		 return null;
 	}
 
 	/**
